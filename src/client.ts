@@ -6,7 +6,6 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import Anthropic from "@anthropic-ai/sdk";
 import dotenv from "dotenv";
-// import { Tool } from "@anthropic-ai/sdk/resources/messages.js"; // FIXME // exists upto 0.32.1
 import {
   CallToolResultSchema,
   ListToolsResultSchema,
@@ -87,7 +86,6 @@ class MCPClient {
       ListToolsResultSchema
     );
 
-    // const availableTools: Tool[] = toolsResponse.tools.map((tool: any) => ({ // FIXME
     const availableTools = toolsResponse.tools.map((tool: any) => ({
       name: tool.name,
       description: tool.description,
@@ -118,8 +116,7 @@ class MCPClient {
               method: "tools/call",
               params: {
                 name: toolName,
-                // args: toolArgs, // FIXME
-                arguments: toolArgs, // FIXME
+                arguments: toolArgs,
               },
             },
             CallToolResultSchema
