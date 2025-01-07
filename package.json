@@ -1,6 +1,7 @@
 {
   "name": "mcp-client-node",
   "version": "1.0.0",
+  "license": "CC-BY-4.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
